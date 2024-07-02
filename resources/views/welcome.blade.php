@@ -99,6 +99,7 @@
         .bg-opacity-20 {
     --tw-bg-opacity: 0.2;
 }
+
 /*.full-height {
                 height: 100vh;
             }
@@ -176,7 +177,6 @@
                     <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-2">Contact</a>
                 </div>
             </div>
-
             <div class="justify-items-end">
                 @if (Route::has('login') && Auth::check())
                     <div class="top-left links ">
@@ -189,8 +189,6 @@
                     </div>
                 @endif
             </div>
-
-
         </div>
     </nav>
 
