@@ -4,59 +4,63 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateInstitutionTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('institution', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('Institution id')->primary();
-            $table->string('Institution Name')->unique();
+        Schema::create('Institution', function (Blueprint $table) {
+            $table->increments('id');
+            $table->uuid('Institution_id')->primary();
+            $table->string('Name_of_institution')->unique();
             $table->integer('Pincode');
-            $table->string('Street Address');
+            $table->string('Street_Address');
             $table->string('District');
             $table->string('State');
             $table->string('Email');
-            $table->string('Category of Institution');
-            $table->string('Type of Institution');
+            $table->string('Category_of_Institution');
+            $table->string('Type_of_Institution');
             $table->string('Affiliation');
-            $table->blob('Institution logo');
-            $table->string('Instagram handle');
-            $table->string('Facebok handle');
-            $table->string('Youtube channel');
-            $table->integer('Year of establishment of college');
-            $table->integer('Contact number');
+            $table->binary('Institution_logo')->nullable();
+            $table->string('Instagram_handle');
+            $table->string('Facebok_handle');
+            $table->string('Youtube_channel');
+            $table->integer('Year_of_establishment_of_college');
+            $table->integer('Contact_number');
             $table->timestamps();
 
         });
         Schema::create('machines', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('Institution id')->references('Institution id')->on('Institution');
-            $table->foreign('Name of institution')->references('Name of institution')->on('Institution');
-            $table->uuid('Machine ID')->primary();
-            $table->string('Machine name');
+            $table->increments('id');
+            $table->uuid('Institution_id')->unsigned()->index()->nullable();
+            $table->foreign('Institution_id')->references('Institution_id')->on('Institution');
+            $table->string('Name_of_institution')->unsigned()->index()->nullable();
+            $table->foreign('Name_of_institution')->references('Name_of_institution')->on('Institution');
+            $table->uuid('Machine_ID')->primary();
+            $table->string('Machine_name');
             $table->string('Category');
             $table->string('Model')->unique();
             $table->string('Location');
-            $table->date('Date of manufacture');
+            $table->date('Date_of_manufacture');
             $table->integer('rate');
             $table->integer('count');
             $table->boolean('Available');
-            $table->blob('image')->nullable;
+            $table->binary('image')->nullable();
+            $table->timestamps();
     });
     Schema::create('iedc', function (Blueprint $table) {
-        $table->uuid('iedc id')->primary();
-        $table->date('Date of establishment of KSUM IEDC');
-        $table->float('IEDC room area (sqft)');
-        $table->blob('Images of IEDC room');
-        $table->string('Instagram handle');
-        $table->string('Facebook handle');
-        $table->string('Youtube channel');
-        $table->date('Date of establishment')->nullable();
-       
+        $table->increments('id');
+        $table->uuid('iedc_id')->primary();
+        $table->date('Date_of_establishment_of_KSUM_IEDC');
+        $table->float('IEDC_room_area');
+        $table->binary('Images_of_IEDC_room')->nullable();
+        $table->string('Instagram_handle');
+        $table->string('Facebook_handle');
+        $table->string('Youtube_channel');
+        $table->date('Date_of_establishment')->nullable();
+        $table->timestamps();
     
     });
 
