@@ -115,7 +115,7 @@
                 <div class="justify-items-end">
                     @if (Route::has('login') && Auth::check())
                         <div class="top-left links ">
-                            <a href="{{ url('/home') }}">Dashboard</a>
+                            <a href="{{ url('/dashboard') }}">Dashboard</a>
                         </div>
                     @elseif (Route::has('login') && !Auth::check())
                         <div class="top-left links ">

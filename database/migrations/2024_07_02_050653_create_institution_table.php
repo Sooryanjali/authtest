@@ -36,8 +36,6 @@ class CreateInstitutionTable extends Migration
             $table->increments('id');
             $table->uuid('Institution_id')->unsigned()->index()->nullable();
             $table->foreign('Institution_id')->references('Institution_id')->on('Institution');
-            $table->string('Name_of_institution')->unsigned()->index()->nullable();
-            $table->foreign('Name_of_institution')->references('Name_of_institution')->on('Institution');
             $table->uuid('Machine_ID')->primary();
             $table->string('Machine_name');
             $table->string('Category');

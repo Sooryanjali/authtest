@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class TestSeeder extends Seeder
 {
@@ -13,9 +14,11 @@ class TestSeeder extends Seeder
      */
     public function run(): void
     {
+        $institutionId = Str::uuid()->toString();
+        $name='tkm';
         DB::table('Institution')->insert([
-            'Institution_id' => '6a6c2807-9f35-4b7e-baef-2f7e1e56a3b8', 
-            'Name_of_institution' => 'tkm',
+            'Institution_id' => $institutionId,
+            'Name_of_institution' => $name,
             'Pincode' => '78695',
             'Street_Address'=>'kkode',
             'District'=>'kollam',
@@ -31,6 +34,37 @@ class TestSeeder extends Seeder
             'Year_of_establishment_of_college' => '1947',
             'Contact_number' => '45738690'
 ]);
+$machineId = Str::uuid()->toString();
+        DB::table('machines')->insert([
+           'Institution_id' => $institutionId, 
+           'Machine_ID' => $machineId,
+           'Machine_name' => 'Printer',
+           'Category' => 'Print',
+           'Model' => 'esfdz',
+           'Location' => 'grs',
+           'Date_of_manufacture' => '2023-07-15',
+            'rate' => '43535',
+            'count' => '4',
+            'Available' => 'true',
+            'image' =>''
+            
+        ]);
+        $machineId = Str::uuid()->toString();
+        DB::table('machines')->insert([
+           'Institution_id' => $institutionId,    
+           'Machine_ID' => $machineId,
+           'Machine_name' => 'auto-cad',
+           'Category' => 'cad',
+           'Model' => 'esfz',
+           'Location' => 'grys',
+           'Date_of_manufacture' => '2023-07-15',
+            'rate' => '43535',
+            'count' => '4',
+            'Available' => 'true',
+            'image' =>''
+            
+        ]);
+
 
     }
 }
