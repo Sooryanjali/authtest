@@ -38,10 +38,11 @@
             </header>
             <main class="p-6">
                 <div class="container mx-auto py-8">
-                    <h1 class="text-3xl font-bold mb-8">Machine Categories</h1>
+                @foreach($mach as $machine)
+                    <h1 class="text-3xl font-bold mb-8">{{ $machine->Category}} </h1>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        @foreach($mach as $machine)
+                        
                             <div class="bg-white shadow-md rounded-lg overflow-hidden">
                                 <div class="h-48 bg-gray-200"></div>
                                 <div class="p-6">
@@ -49,17 +50,20 @@
                                     <h2 class="text-xl font-semibold mb-2">{{ $machine->Machine_name}}</h2>
                                     <h2 class="text-xl font-semibold mb-2">{{ $machine->Location}}</h2>
                                    
-                                    <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">View More</a>
+                                    <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Details</a>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
+                <div class="p-4">
+                    <button class="w-1/5 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Add Machines</button>
+                </div>
             </main>
-            <footer class="bg-gray-800 text-white py-4 text-center">
-                © 2024 IEDC Portal. All rights reserved.
-            </footer>
         </div>
     </div>
+    <footer class="bg-gray-800 text-white py-4 text-center">
+                © 2024 IEDC Portal. All rights reserved.
+            </footer>
 </body>
 </html>
