@@ -14,6 +14,11 @@
     --tw-bg-opacity: 1;
     background-color: rgb(70 47 145 / var(--tw-bg-opacity)) /* #462f91 */;
 }
+.bg-\[\#462f91\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(70 47 145 / var(--tw-bg-opacity)) /* #462f91 */;
+}
+
 
 
     </style>
