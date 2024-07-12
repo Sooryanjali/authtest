@@ -30,17 +30,17 @@
     <div class="flex">
         <!-- Sidebar -->
         <div class="w-64 bg-black text-white min-h-screen">
-            <div class="pt-6 px-4 pb-2">
+            <div class="pt-6 px-4 pb-0">
                 <h1 class="text-2xl font-bold">IEDC Portal</h1>
             </div>
             <nav class="mt-10">
-                <a href="/" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Home</a>
+                <a href="/" class="block py-4 px-4 text-white hover:bg-[#462f91]">Home</a>
                 <a href="{{route('profile.edit')}}"
                     {{ __('Profile') }} class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Profile</a>
-                <a href="#" class="block py-2.5 px-4 bg-[#462f91]">Machines</a>
-                <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Startups</a>
-                <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Fablabs</a>
-                <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Nodal officers</a>
+                <a href="#" class="block py-4 px-4 bg-[#462f91]">Machines</a>
+                <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Startups</a>
+                <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Fablabs</a>
+                <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Nodal officers</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout') }}"

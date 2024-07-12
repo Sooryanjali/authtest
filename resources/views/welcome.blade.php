@@ -107,15 +107,15 @@
                 </div>
                 <div class="w-full flex-grow lg:items-center lg:w-auto hidden lg:block" id="nav-content">
                     <div class="text-sm lg:flex-grow">
-                        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-2">Home</a>
-                        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-2">About</a>
-                        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-2">Contact</a>
+                        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-4">Home</a>
+                        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-4">About</a>
+                        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-4">Contact</a>
                     </div>
                 </div>
                 <div class="justify-items-end">
                     @if (Route::has('login') && Auth::check())
                         <div class="top-left links ">
-                            <a href="{{ url('/dashboard') }}">Dashboard</a>
+                            <a href="{{ url('/dashboard') }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-2">Dashboard</a>
                         </div>
                     @elseif (Route::has('login') && !Auth::check())
                         <div class="top-left links ">
