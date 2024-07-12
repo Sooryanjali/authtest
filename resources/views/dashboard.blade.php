@@ -65,26 +65,12 @@
                 <div class="container mx-auto py-8">
                     <h1 class="text-3xl font-bold mb-8">Machine Categories</h1>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-                        @php
-                            $categories = [
-                                ['title' => 'Idea Lab', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'Laboratories', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'Workshops', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'Library', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'IT and Computer Labs', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'Medical', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'Arts and Music', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'Administrative', 'description' => 'This is a description of the item. It provides brief details about the item.'],
-                                ['title' => 'Fab Labs', 'description' => 'This is a description of the item. It provides brief details about the item.']
-                            ];
-                        @endphp
 
-                        @foreach($categories as $category)
+                    @foreach($machines as $machine)
                             <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
                                 <div class="h-48 bg-gray-200"></div>
                                 <div class="p-6">
-                                    <h2 class="text-xl font-semibold mb-2">{{ $category['title'] }}</h2>
-                                    <p class="text-gray-600 mb-4">{{ $category['description'] }}</p>
+                                    <h2 class="text-xl font-semibold mb-2">{{ $machine }}</h2>
                                     <a href="#" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">View More</a>
                                 </div>
                             </div>

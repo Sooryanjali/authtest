@@ -8,14 +8,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[machinesController::class, 'index'] )->middleware(['auth', 'verified'])->name('dashboard');
 // routes/web.php
 
 
 
-Route::get('/machines', [machinesController::class, 'index'])->middleware(['auth', 'verified'])->name('machines');
+Route::get('/machines', [machinesController::class, 'index'])->name('machines');
 
 
 Route::middleware('auth')->group(function () {

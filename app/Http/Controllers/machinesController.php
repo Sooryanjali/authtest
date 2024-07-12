@@ -12,7 +12,7 @@ class machinesController extends Controller
        /* $machines = Machine::all(); // Fetch all machine records
         return view('machines', compact('machines')); // Pass data to the view*/
         $machines = DB::table('machines')->pluck('Category');
-        return view('machines', compact('machines'));
+        return view('dashboard', compact('machines'));
     }
 
 
