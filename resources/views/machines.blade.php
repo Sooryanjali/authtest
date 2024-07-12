@@ -41,12 +41,13 @@
                     <h1 class="text-3xl font-bold mb-8">Machine Categories</h1>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        @foreach($machines as $machine)
+                        @foreach($mach as $machine)
                             <div class="bg-white shadow-md rounded-lg overflow-hidden">
                                 <div class="h-48 bg-gray-200"></div>
                                 <div class="p-6">
                                     <!--$machine->Machine_name-->
-                                    <h2 class="text-xl font-semibold mb-2">{{ $machine }}</h2>
+                                    <h2 class="text-xl font-semibold mb-2">{{ $machine->Machine_name}}</h2>
+                                    <h2 class="text-xl font-semibold mb-2">{{ $machine->Location}}</h2>
                                    
                                     <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">View More</a>
                                 </div>

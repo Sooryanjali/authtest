@@ -71,7 +71,7 @@
                                 <div class="h-48 bg-gray-200"></div>
                                 <div class="p-6">
                                     <h2 class="text-xl font-semibold mb-2">{{ $machine }}</h2>
-                                    <a href="#" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">View More</a>
+                                    <a href="{{ url('/machine_details', ['category' =>($machine)]) }}" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">View More</a>
                                 </div>
                             </div>
                         @endforeach

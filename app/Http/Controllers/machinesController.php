@@ -14,6 +14,16 @@ class machinesController extends Controller
         $machines = DB::table('machines')->pluck('Category');
         return view('dashboard', compact('machines'));
     }
+    public function show($category)
+    {
+    
+        //$mach = Machine::where('Category', $category)->first();
+        
+        $mach = DB::table('machines')->where('Category',$category)->get();
+        //$mach = DB::select('select * from machines where Category= $category',[1]);
+        //$mach = DB::select('select * from machines where Category= :id', ['id' => $category]);
+        return view('machines', compact('mach'));
+    }
 
 
 }

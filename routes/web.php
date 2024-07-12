@@ -11,7 +11,7 @@ Route::get('/', function () {
 Route::get('/dashboard',[machinesController::class, 'index'] )->middleware(['auth', 'verified'])->name('dashboard');
 // routes/web.php
 
-
+Route::get('/machine_details/{category}',[machinesController::class, 'show'])->name('machine.details');
 
 Route::get('/machines', [machinesController::class, 'index'])->name('machines');
 
