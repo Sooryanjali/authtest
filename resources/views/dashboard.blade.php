@@ -34,16 +34,26 @@
                 <h1 class="text-2xl font-bold">IEDC Portal</h1>
             </div>
             <nav class="mt-10">
-                <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Home</a>
-                <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Profile</a>
+                <a href="/" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Home</a>
+                <a href="{{route('profile.edit')}}"
+                    {{ __('Profile') }} class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Profile</a>
                 <a href="#" class="block py-2.5 px-4 bg-[#462f91]">Machines</a>
                 <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Startups</a>
                 <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Fablabs</a>
-                <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Logout</a>
                 <a href="#" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Nodal officers</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                 this.closest('form').submit();"
+                        class="block py-2.5 px-4 text-white hover:bg-[#462f91]">
+                        {{ __('Log Out') }}
+                    </a>
+                </form>
             </nav>
         </div>
 
+                      
         <!-- Main content -->
         <div class="flex-1">
             <main class="p-6">
