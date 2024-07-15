@@ -22,4 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/add_machines',[machinesController::class, 'show'])->name('add_machines');
+
 require __DIR__.'/auth.php';
