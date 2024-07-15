@@ -76,7 +76,7 @@
                                     <h2 class="text-xl font-semibold mb-2">{{ $machine->Machine_name}}</h2>
                                     <h2 class="text-xl font-semibold mb-4">{{ $machine->Location}}</h2>
                                    
-                                    <a href="#" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
+                                    <a href="/machines/detail" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
                                 </div>
                             </div>
                         @endforeach

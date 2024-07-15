@@ -28,5 +28,9 @@ class machinesController extends Controller
     {
         return view('addmachine');
     }
+    public function displaydetails()
+    {
+        return view('details');
+    }
 
 }
