@@ -73,10 +73,10 @@
                                 <div class="h-48 bg-gray-200"></div>
                                 <div class="p-6">
                                     <!--$machine->Machine_name-->
-                                    <h2 class="text-xl font-semibold mb-2">{{ $machine->Machine_name}}</h2>
-                                    <h2 class="text-xl font-semibold mb-4">{{ $machine->Location}}</h2>
+                                    <h2 class="text-xl font-semibold mb-2">Name : {{ $machine->Machine_name}}</h2>
+                                    <h2 class="text-xl font-semibold mb-4">Location : {{ $machine->Location}}</h2>
                                    
-                                    <a href="/machines/detail" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
+                                    <a href="{{ url('/machines/detail', ['Machine_name' =>($machine->Machine_name)]) }}" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
                                 </div>
                             </div>
                         @endforeach

@@ -28,9 +28,11 @@ class machinesController extends Controller
     {
         return view('addmachine');
     }
-    public function displaydetails()
+    public function displaydetails($Machine_name)
     {
-        return view('details');
+        $mach = DB::table('machines')->where('Machine_name',$Machine_name)->get();
+        return view('details', compact('mach'));
+        
     }
 
 }
