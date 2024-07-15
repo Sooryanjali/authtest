@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="p-6 ">
-                    <button class="w-1/4 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Edit Machines</button>
+                    <a href="/machines/add_machines" class="w-1/4 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Add Machines</a>
                 </div>
             </main>
         </div>

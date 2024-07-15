@@ -24,6 +24,9 @@ class machinesController extends Controller
         //$mach = DB::select('select * from machines where Category= :id', ['id' => $category]);
         return view('machines', compact('mach'));
     }
-
+    public function display()
+    {
+        return view('addmachine');
+    }
 
 }

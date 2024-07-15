@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="p-4">
-                    <button href="/" class="w-1/5 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Add Machines</button>
+                    <a href="/machines/add_machines" class="w-1/5 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Add Machines</a>
                 </div>
             </main>
         </div>

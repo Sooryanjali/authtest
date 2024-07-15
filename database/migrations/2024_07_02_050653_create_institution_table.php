@@ -41,6 +41,7 @@ class CreateInstitutionTable extends Migration
             $table->string('Category');
             $table->string('Model')->unique();
             $table->string('Location');
+            $table->string('');
             $table->date('Date_of_manufacture');
             $table->integer('rate');
             $table->integer('count');
