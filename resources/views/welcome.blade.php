@@ -90,6 +90,32 @@
             .bg-opacity-20 {
                 --tw-bg-opacity: 0.2;
             }
+            .bg-\[\#5C3DC3\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(92 61 195 / var(--tw-bg-opacity)) /* #5c3dc3 */;
+}
+.hover\:bg-\[\#462f91\]:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(70 47 145 / var(--tw-bg-opacity)) /* #462f91 */;
+}
+
+            /* Custom styles for the marquee effect */
+        .marquee {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: marquee 60s linear infinite ;
+        }
+        .marquee-reverse {
+            animation-direction: reverse;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .font-semibold {
+    font-weight: 600;
+}
         </style>
     </head>
     <body class="bg-white dark:bg-cyan-900 font-sans leading-normal tracking-normal">
@@ -137,6 +163,71 @@
                 </div>
             </div>
         </div>
+        
+        <div>
+            <h1 class="text-3xl md:text-4xl font-bold text-black px-12 pt-8">MACHINE CATEGORY</h1>
+        </div>
+
+        <div class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border-white bg-background md:shadow-xl">
+            <!-- First Marquee Row -->
+            <div class="marquee pause-on-hover">
+                @for ($i=0;$i<10;$i++)
+                    <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
+                                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
+                                        <div class="h-48 bg-gray-200">
+                                            <img src="{{ asset('path/to/your/image.jpg') }}" alt="Image description" class="h-full w-full object-cover">
+                                        </div>
+
+                                        <div class="p-6">
+                                            <h2 class="text-xl font-semibold mb-2">Category {{$i}}</h2>
+                                            <a href="/login" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">View More</a>
+                                        </div>
+                                    </div>
+                    </figure>
+                @endfor
+                  
+   
+
+                   
+
+ 
+            </div>
+    
+            <!-- Second Marquee Row 
+            <div class="marquee marquee-reverse pause-on-hover">
+              
+                <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
+                        <div class="h-48 bg-gray-200"></div>
+                        <div class="p-6">
+                            <h2 class="text-xl font-semibold mb-2">Machine</h2>
+                            <a href="/login" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
+                        </div>
+                    </div>
+                </figure>
+
+                <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
+                        <div class="h-48 bg-gray-200"></div>
+                        <div class="p-6">
+                            <h2 class="text-xl font-semibold mb-2">Machine</h2>
+                            <a href="/login" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
+                        </div>
+                    </div>
+                </figure> -->
+
+                
+            </div>
+        </div>
+    
+        <!-- Include Marquee Script -->
+        <script>
+            // Pause on hover for the marquee
+            document.querySelectorAll('.pause-on-hover').forEach(el => {
+                el.addEventListener('mouseover', () => el.style.animationPlayState = 'paused');
+                el.addEventListener('mouseout', () => el.style.animationPlayState = 'running');
+            });
+        </script>
 
         <footer class="bg-black text-white text-center p-4 mt-0">
             <p>&copy; 2024 IEDC Portal. All rights reserved.</p>
