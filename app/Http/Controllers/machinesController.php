@@ -34,5 +34,9 @@ class machinesController extends Controller
         return view('details', compact('mach'));
         
     }
+    public function idea()
+    {
+        return view('idea');
+    }
 
 }
