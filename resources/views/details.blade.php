@@ -65,7 +65,9 @@
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex">
                 <div class="w-1/3">
-                    <div class="bg-gray-200 h-40 mb-4"></div>
+                    <div class="bg-gray-200 h-60  mb-4">
+                        <img src="images/printer.jpg" alt="Image description" class="h-full w-full object-cover">
+                    </div>
                 </div>
 
                 @foreach ($mach as $machine )
@@ -84,7 +86,7 @@
                         <p><strong>Available:</strong> {{ $machine->Available}}</p>
                         <p><strong>Count:</strong> {{ $machine->count}}</p>
                     </div>
-                    <button class="bg-[#5C3DC3] hover:bg-[#462f91] text-white py-2 px-4 rounded">Edit</button>
+                    
                 </div>
             </div>
             @endforeach
