@@ -5,9 +5,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\machinesController;
 use App\Http\Controllers\ChatController;
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/',[machinesController::class, 'landing'] )->name('landing');
 
 Route::get('/dashboard',[machinesController::class, 'index'] )->middleware(['auth', 'verified'])->name('dashboard');
 // routes/web.php

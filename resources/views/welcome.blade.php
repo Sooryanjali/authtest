@@ -104,7 +104,7 @@
             display: flex;
             overflow: hidden;
             white-space: nowrap;
-            animation: marquee 60s linear infinite ;
+            animation: marquee 10s linear infinite ;
         }
         .marquee-reverse {
             animation-direction: reverse;
@@ -175,7 +175,7 @@
         <div class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border-white bg-background md:shadow-xl">
             <!-- First Marquee Row -->
             <div class="marquee pause-on-hover">
-                @for ($i=0;$i<10;$i++)
+                @foreach($machines as $mach)
                     <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
                                     <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
                                         <div class="h-48 bg-gray-200">
@@ -183,12 +183,12 @@
                                         </div>
 
                                         <div class="p-6">
-                                            <h2 class="text-xl font-semibold mb-2">Category {{$i}}</h2>
+                                            <h2 class="text-xl font-semibold mb-2">{{$mach}} </h2>
                                             <a href="/login" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">View More</a>
                                         </div>
                                     </div>
                     </figure>
-                @endfor
+                @endforeach
                   
    
 

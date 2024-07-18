@@ -7,6 +7,11 @@ use App\Models\Machine;
 use Illuminate\Support\Facades\DB;
 class machinesController extends Controller
 {
+    public function landing()
+    {
+        $machines = DB::table('machines')->distinct()->pluck('Category');
+        return view('welcome', compact('machines'));
+    }
     public function index()
     {
        /* $machines = Machine::all(); // Fetch all machine records
