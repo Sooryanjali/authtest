@@ -37,11 +37,11 @@
                 <a href="/" class="block py-4 px-4 text-white hover:bg-[#462f91]">Home</a>
                 <a href="{{route('profile.edit')}}"
                     {{ __('Profile') }} class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Profile</a>
-                <a href="#" class="block py-4 px-4 bg-[#462f91]">Machines</a>
+                <a href="/dashboard" class="block py-4 px-4 bg-[#462f91]">Machines</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Startups</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Fablabs</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Nodal officers</a>
-                <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Idea Validation</a>
+                <a href="/idea" class="block py-4 px-4 text-white hover:bg-[#462f91]">Idea Validation</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout') }}"
@@ -81,9 +81,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="p-4">
-                    <a href="/machines/add_machines" class="w-1/5 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Add Machines</a>
-                </div>
+        
             </main>
         </div>
     </div>

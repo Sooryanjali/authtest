@@ -42,7 +42,7 @@
                 <a href="/" class="block py-4 px-4 text-white hover:bg-[#462f91]">Home</a>
                 <a href="{{route('profile.edit')}}"
                     {{ __('Profile') }} class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Profile</a>
-                <a href="#" class="block py-4 px-4 bg-[#462f91]">Machines</a>
+                <a href="/dashboard" class="block py-4 px-4 bg-[#462f91]">Machines</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Startups</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Fablabs</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Nodal officers</a>
