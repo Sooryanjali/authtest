@@ -46,7 +46,9 @@ $machineId = Str::uuid()->toString();
             'rate' => '43535',
             'count' => '4',
             'Available' => 'true',
-            'image' =>''
+            'Description' => 'bla',
+            'Specification' => json_encode([]),
+            'image' =>json_encode([]),
             
         ]);
         $machineId = Str::uuid()->toString();
@@ -61,7 +63,9 @@ $machineId = Str::uuid()->toString();
             'rate' => '43535',
             'count' => '4',
             'Available' => 'true',
-            'image' =>''
+            'Description' => 'bla',
+            'Specification' => json_encode([]),
+            'image' =>json_encode([]),
             
         ]);
 

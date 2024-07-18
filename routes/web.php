@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InputController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\machinesController;
@@ -23,6 +24,8 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/machines/add_machines',[machinesController::class, 'display'])->name('add_machines');
 Route::get('/machines/detail/{Machine_name}',[machinesController::class, 'displaydetails'])->name('detail');
+Route::post('/addedsuccesfully',[InputController::class,'storeq'])->name('input');
+
 
 Route::get('/idea',[machinesController::class, 'idea'])->name('idea');
 Route::post('/chat', [ChatController::class, 'handleChat'])->name('chat.handle');

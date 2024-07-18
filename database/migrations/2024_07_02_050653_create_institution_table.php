@@ -14,7 +14,7 @@ class CreateInstitutionTable extends Migration
         Schema::create('Institution', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('Institution_id')->primary();
-            $table->string('Name_of_institution')->unique();
+            $table->string('Name_of_institution');
             $table->integer('Pincode');
             $table->string('Street_Address');
             $table->string('District');
@@ -41,12 +41,13 @@ class CreateInstitutionTable extends Migration
             $table->string('Category');
             $table->string('Model')->unique();
             $table->string('Location');
-            $table->string('');
             $table->date('Date_of_manufacture');
             $table->integer('rate');
             $table->integer('count');
             $table->boolean('Available');
-            $table->binary('image')->nullable();
+            $table->string('Description')->nullable();
+            $table->jsonb('Specification')->nullable();
+            $table->jsonb('image')->nullable();
             $table->timestamps();
     });
     Schema::create('iedc', function (Blueprint $table) {
@@ -79,3 +80,20 @@ class CreateInstitutionTable extends Migration
        
     
 };
+class UpdateMachinesTable extends Migration
+{
+    public function up()
+    {
+        Schema::table('machines', function (Blueprint $table) {
+            $table->jsonb('image')->change();
+        });
+    }
+
+    public function down()
+    {
+        Schema::table('machines', function (Blueprint $table) {
+            // If you need to revert this change
+            $table->binary('image')->change();
+        });
+    }
+}

@@ -28,6 +28,8 @@ class Machine extends Model
         'rate',
         'count',
         'Available',
+        'Description',
+        'Specification',
         'image',
     ];
 

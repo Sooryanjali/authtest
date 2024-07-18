@@ -39,8 +39,7 @@
             </div>
             <nav class="mt-10">
                 <a href="/" class="block py-4 px-4 text-white hover:bg-[#462f91]">Home</a>
-                <a href="{{route('profile.edit')}}"
-                    {{ __('Profile') }} class="block py-2.5 px-4 text-white hover:bg-[#462f91]">Profile</a>
+                <a href="{{route('profile.edit')}}" class="block py-2.5 px-4 text-white hover:bg-[#462f91]">{{ __('Profile') }}</a>
                 <a href="#" class="block py-4 px-4 bg-[#462f91]">Machines</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Startups</a>
                 <a href="#" class="block py-4 px-4 text-white hover:bg-[#462f91]">Fablabs</a>
@@ -63,71 +62,102 @@
                 <div class="container mx-auto p-4">
                     <div class="bg-white shadow-md rounded-lg p-6">
                         <h2 class="text-2xl font-bold mb-4">Machine Details</h2>
-                        <form method="POST" enctype="multipart/form-data">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <!-- Existing form fields -->
-                                <div>
-                                    <label class="block text-gray-700">Machine Name</label>
-                                    <input type="text" name="machine_name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700">Institution Name</label>
-                                    <input type="text" name="machine_id" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700">Institution Id</label>
-                                    <input type="text" name="institution_name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700">Category</label>
-                                    <input type="text" name="institution_id" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700">Item Model</label>
-                                    <input type="text" name="category" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-
-                                <div>
-                                    <label class="block text-gray-700">Manufacturing Date</label>
-                                    <input type="date" name="manufacturing_date" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div> 
-
-                                <div>
-                                    <label class="block text-gray-700">Count</label>
-                                    <input type="text" name="item_model" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-                    
-                                <div>
-                                    <label class="block text-gray-700">Available</label>
-                                    <input type="text" name="count" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700">Cost</label>
-                                    <input type="text" name="available" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                                </div>
-                               
-                                <div class="md:col-span-1">
-                                    <label class="block text-gray-700">Description</label>
-                                    <textarea name="description" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
-                                </div>
-                                <div class="md:col-span-2" id="specifications-container">
-                                    <label class="block text-gray-700">Specification</label>
-                                    <textarea name="specification[]" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
-                                </div>
-                               
-                                <div class="md:col-span-2" id="image-container">
-                                    <label class="block text-gray-700">Upload Image</label>
-                                    <input type="file" name="image[]" class="mt-1 block w-full border border-gray-300 rounded-md p-2" accept="image/*" required>
-                                </div>
+                        <form method="POST" action="{{ route('input') }}" enctype="multipart/form-data">
+                            @csrf
+                            <!-- Machine Name -->
+                            <div>
+                                <x-input-label for="machine_name" :value="__('Machine Name')" />
+                                <x-text-input id="machine_name" class="block mt-1 w-full" type="text" name="machine_name" :value="old('machine_name')" required autofocus />
+                                <x-input-error :messages="$errors->get('machine_name')" class="mt-2" />
                             </div>
+
+                            <!-- Institution ID -->
                             <div class="mt-4">
-                                <button type="submit" class="bg-[#5C3DC3] hover:bg-[#462f91] text-white font-bold py-2 px-4 rounded">
-                                    Save
-                                </button>
-                                <button type="button" id="add-specification-button" class="bg-[#5C3DC3] hover:bg-[#462f91] text-white font-bold py-2 px-4 rounded">
+                                <x-input-label for="institution_id" :value="__('Institution ID')" />
+                                <x-text-input id="institution_id" class="block mt-1 w-full" type="text" name="institution_id" :value="old('institution_id')" required />
+                                <x-input-error :messages="$errors->get('institution_id')" class="mt-2" />
+                            </div>
+
+                            <!-- Category -->
+                            <div class="mt-4">
+                                <x-input-label for="category" :value="__('Category')" />
+                                <x-text-input id="category" class="block mt-1 w-full" type="text" name="category" :value="old('category')" required />
+                                <x-input-error :messages="$errors->get('category')" class="mt-2" />
+                            </div>
+
+                            <!-- Model -->
+                            <div class="mt-4">
+                                <x-input-label for="model" :value="__('Model')" />
+                                <x-text-input id="model" class="block mt-1 w-full" type="text" name="model" :value="old('model')" required />
+                                <x-input-error :messages="$errors->get('model')" class="mt-2" />
+                            </div>
+
+                            <!-- Location -->
+                            <div class="mt-4">
+                                <x-input-label for="location" :value="__('Location')" />
+                                <x-text-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required />
+                                <x-input-error :messages="$errors->get('location')" class="mt-2" />
+                            </div>
+
+                            <!-- Date of Manufacture -->
+                            <div class="mt-4">
+                                <x-input-label for="date_of_manufacture" :value="__('Date of Manufacture')" />
+                                <x-text-input id="date_of_manufacture" class="block mt-1 w-full" type="date" name="date_of_manufacture" :value="old('date_of_manufacture')" required />
+                                <x-input-error :messages="$errors->get('date_of_manufacture')" class="mt-2" />
+                            </div>
+
+                            <!-- Rate -->
+                            <div class="mt-4">
+                                <x-input-label for="rate" :value="__('Rate')" />
+                                <x-text-input id="rate" class="block mt-1 w-full" type="number" name="rate" :value="old('rate')" required />
+                                <x-input-error :messages="$errors->get('rate')" class="mt-2" />
+                            </div>
+
+                            <!-- Count -->
+                            <div class="mt-4">
+                                <x-input-label for="count" :value="__('Count')" />
+                                <x-text-input id="count" class="block mt-1 w-full" type="number" name="count" :value="old('count')" required />
+                                <x-input-error :messages="$errors->get('count')" class="mt-2" />
+                            </div>
+
+
+                            <!-- Description -->
+                            <div class="mt-4">
+                                <x-input-label for="description" :value="__('Description')" />
+                                <textarea id="description" class="block mt-1 w-full border border-gray-300 rounded-md p-2" name="description" required>{{ old('description') }}</textarea>
+                                <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                            </div>
+
+                            <!-- Specification -->
+                            <div class="mt-4" id="specifications-container">
+                                <x-input-label for="specification" :value="__('Specification')" />
+                                @foreach (old('specification', ['']) as $specification)
+                                    <textarea id="specification" class="block mt-1 w-full border border-gray-300 rounded-md p-2" name="specification[]" required>{{ $specification }}</textarea>
+                                @endforeach
+                                <x-input-error :messages="$errors->get('specification')" class="mt-2" />
+                            </div>
+
+                            <!-- Images -->
+                            <div class="mt-4" id="image-container">
+                                <x-input-label for="image" :value="__('Upload Image')" />
+                                @if (old('image'))
+                                    @foreach (old('image') as $image)
+                                        <input id="image" class="block mt-1 w-full border border-gray-300 rounded-md p-2" type="file" name="image[]" accept="image/*" required />
+                                    @endforeach
+                                @else
+                                    <input id="image" class="block mt-1 w-full border border-gray-300 rounded-md p-2" type="file" name="image[]" accept="image/*" required />
+                                @endif
+                                <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                            </div>
+
+                            <div class="flex items-center justify-end mt-4">
+                                <x-primary-button class="ml-4">
+                                    {{ __('Save') }}
+                                </x-primary-button>
+                                <button type="button" id="add-specification-button" class="ml-4 bg-[#5C3DC3] hover:bg-[#462f91] text-white font-bold py-2 px-4 rounded">
                                     Add Specification
                                 </button>
-                                <button type="button" id="add-image-button" class="bg-[#5C3DC3] hover:bg-[#462f91] text-white font-bold py-2 px-4 rounded">
+                                <button type="button" id="add-image-button" class="ml-4 bg-[#5C3DC3] hover:bg-[#462f91] text-white font-bold py-2 px-4 rounded">
                                     Add Image
                                 </button>
                             </div>
