@@ -19,7 +19,6 @@ class Machine extends Model
     protected $fillable = [
         'Institution_id',
         'Name_of_institution',
-        'Machine_ID',
         'Machine_name',
         'Category',
         'Model',

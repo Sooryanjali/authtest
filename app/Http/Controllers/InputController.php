@@ -40,7 +40,6 @@ class InputController extends Controller
 
         // Create a new machine record
         Machine::create([
-            'Machine_ID' => (string) Str::uuid(),
             'Institution_id' => $validated['institution_id'],
             'Machine_name' => $validated['machine_name'],
             'Category' => $validated['category'],

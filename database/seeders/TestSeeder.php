@@ -14,10 +14,9 @@ class TestSeeder extends Seeder
      */
     public function run(): void
     {
-        $institutionId = Str::uuid()->toString();
         $name='tkm';
         DB::table('Institution')->insert([
-            'Institution_id' => $institutionId,
+            'Institution_id' => 'TKM123',
             'Name_of_institution' => $name,
             'Pincode' => '78695',
             'Street_Address'=>'kkode',
@@ -36,8 +35,7 @@ class TestSeeder extends Seeder
 ]);
 $machineId = Str::uuid()->toString();
         DB::table('machines')->insert([
-           'Institution_id' => $institutionId, 
-           'Machine_ID' => $machineId,
+           'Institution_id' => 'TKM123', 
            'Machine_name' => 'Printer',
            'Category' => 'Idea Lab',
            'Model' => 'esfdz',
@@ -53,8 +51,7 @@ $machineId = Str::uuid()->toString();
         ]);
         $machineId = Str::uuid()->toString();
         DB::table('machines')->insert([
-           'Institution_id' => $institutionId,    
-           'Machine_ID' => $machineId,
+           'Institution_id' => 'TKM123',    
            'Machine_name' => 'auto-cad',
            'Category' => 'Mechanical Lab',
            'Model' => 'esfz',
