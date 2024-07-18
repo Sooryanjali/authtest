@@ -77,10 +77,11 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
-                <div class="p-6 ">
-                    <a href="/machines/add_machines" class="w-1/4 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Add Machines</a>
-                </div>
+                    <div class="p-6">
+                        @if(preg_match('/^[\w\.-]{0,4}iedc@gmail\.com$/', $userEmail))
+                            <a href="/machines/add_machines" class="w-1/4 justify-items-center p-2 transition duration-200 bg-[#5C3DC3] hover:bg-[#462f91] text-white rounded-lg">Add Machines</a>
+                        @endif
+                    </div>
             </main>
         </div>
     </div>

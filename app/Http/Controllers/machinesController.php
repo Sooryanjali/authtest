@@ -11,8 +11,9 @@ class machinesController extends Controller
     {
        /* $machines = Machine::all(); // Fetch all machine records
         return view('machines', compact('machines')); // Pass data to the view*/
+        $userEmail = auth()->user()->email;
         $machines = DB::table('machines')->distinct()->pluck('Category');
-        return view('dashboard', compact('machines'));
+        return view('dashboard', compact('machines', 'userEmail'));
     }
     public function show($category)
     {
