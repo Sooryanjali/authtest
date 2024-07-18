@@ -13,7 +13,7 @@ class CreateInstitutionTable extends Migration
     {
         Schema::create('Institution', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('Institution_id')->primary();
+            $table->string('Institution_id')->primary();
             $table->string('Name_of_institution');
             $table->integer('Pincode');
             $table->string('Street_Address');
@@ -33,10 +33,9 @@ class CreateInstitutionTable extends Migration
 
         });
         Schema::create('machines', function (Blueprint $table) {
-            $table->increments('id');
-            $table->uuid('Institution_id')->unsigned()->index()->nullable();
+            $table->increments('Machine_ID')->primary();
+            $table->string('Institution_id')->unsigned()->index()->nullable();
             $table->foreign('Institution_id')->references('Institution_id')->on('Institution');
-            $table->uuid('Machine_ID')->primary();
             $table->string('Machine_name');
             $table->string('Category');
             $table->string('Model')->unique();
@@ -52,7 +51,7 @@ class CreateInstitutionTable extends Migration
     });
     Schema::create('iedc', function (Blueprint $table) {
         $table->increments('id');
-        $table->uuid('iedc_id')->primary();
+        $table->string('iedc_id')->primary();
         $table->date('Date_of_establishment_of_KSUM_IEDC');
         $table->float('IEDC_room_area');
         $table->binary('Images_of_IEDC_room')->nullable();
