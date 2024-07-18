@@ -24,6 +24,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/machines/add_machines',[machinesController::class, 'display'])->name('add_machines');
 Route::get('/machines/detail/{Machine_name}',[machinesController::class, 'displaydetails'])->name('detail');
 
-Route::get('/machines/idea',[machinesController::class, 'idea'])->name('idea');
+Route::get('/idea',[machinesController::class, 'idea'])->name('idea');
 Route::post('/chat', [ChatController::class, 'handleChat'])->name('chat.handle');
 require __DIR__.'/auth.php';

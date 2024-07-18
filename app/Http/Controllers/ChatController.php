@@ -3,36 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
+use GeminiAPI\Client;
+use GeminiAPI\GeminiAPI;
 
 class ChatController extends Controller
 {
-    public function handleChat(Request $request)
-    {
-        $userMessage = $request->input('message');
-        
-        // Example API URL and headers (adjust according to your Gemini API specifics)
-        $apiUrl = 'https://api.gemini.com/v1/validate-idea';
-        $client = new Client();
+  public function handleChat(Request $request)
+  {
+    $userMessage = $request->input('message');
 
-        try {
-            $response = $client->post($apiUrl, [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . env('GEMINI_API_KEY'),
-                    'Accept' => 'application/json',
-                    'Content-Type' => 'application/json',
-                ],
-                'json' => [
-                    'message' => $userMessage,
-                ],
-            ]);
+    $client = new Client('AIzaSyCnlkFMiLD-alTnZB1i20r_RN-Ej_VFtKg'); // Replace with your actual key
 
-            $responseBody = json_decode($response->getBody(), true);
-            return response()->json(['response' => $responseBody['response']]);
+    try {
+      $response = $client->geminiPro()->generateContent(
+        new GeminiAPI\Resources\Parts\TextPart($userMessage)
+      );
 
-        } catch (\Exception $e) {
-            return response()->json(['response' => 'There was an error processing your request.'], 500);
-        }
+      return response()->json(['response' => $response->text()]);
+
+    } catch (\Exception $e) {
+      return response()->json(['response' => 'There was an error processing your request.'], 500);
     }
+  }
 }
-
