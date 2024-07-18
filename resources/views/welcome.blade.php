@@ -154,18 +154,22 @@
         </nav>
 
         <div class="video-background-container relative h-screen">
-            <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted>
+            <video class="absolute top-0 left-0 w-full h-5/6 object-cover" autoplay loop muted>
                 <source src="videos/im3.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 flex items-center justify-center bg-opacity-50">
-                <div class="bg-opacity-0 p-6 rounded-lg bg-white text-white text-center">
+                <div class="bg-opacity-0 p-6 mb-28 rounded-lg bg-white text-white text-center">
                     <h2 class="text-5xl md:text-6xl font-bold mb-0"> WELCOME TO <span style="background-image: linear-gradient(to right, rgb(14, 208, 208), rgb(8, 93, 189)); background-repeat: no-repeat; background-position: left center; display: inline-block; background-size: 100% 100%; background-clip: text; -webkit-text-fill-color: transparent;">IEDC </span> PORTAL</h2>
                 </div>
             </div>
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-white px-12 pt-4">MACHINE CATEGORY</h1>
+            </div>
+
         </div>
         
         <div>
-            <h1 class="text-3xl md:text-4xl font-bold text-black px-12 pt-8">MACHINE CATEGORY</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-black px-12 pt-4">MACHINE CATEGORY</h1>
         </div>
 
         <div class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border-white bg-background md:shadow-xl">
@@ -175,7 +179,7 @@
                     <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
                                     <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
                                         <div class="h-48 bg-gray-200">
-                                            <img src="{{ asset('path/to/your/image.jpg') }}" alt="Image description" class="h-full w-full object-cover">
+                                            <img src="images/printer.jpg" alt="Image description" class="h-full w-full object-cover">
                                         </div>
 
                                         <div class="p-6">
