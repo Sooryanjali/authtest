@@ -22,13 +22,18 @@
             --tw-bg-opacity: 1;
             background-color: rgb(92 61 195 / var(--tw-bg-opacity)) /* #5c3dc3 */;
         }
+        .border-indigo-500 {
+            --tw-border-opacity: 1;
+            border-color: rgb(99 102 241 / var(--tw-border-opacity)) /* #6366f1 */;
+        }
+        
     </style>
 </head>
 <body class="bg-gray-100">
     <header class="bg-[#5C3DC3] text-white py-4">
         <div class="container mx-auto flex justify-between items-center">
             <h2 class="text-2xl px-4">Dashboard</h2>
-            <input type="text" placeholder="Search for Institute" class="mx-6 px-7 py-2 rounded">
+           
         </div>
     </header>
     <div class="flex">
@@ -58,102 +63,104 @@
         </div>
         <!-- Main content -->
         <div class="flex-1">
-            <main class="p-6">        
+            <main class="p-6">
                 <div class="container mx-auto p-4">
                     <div class="bg-white shadow-md rounded-lg p-6">
                         <h2 class="text-2xl font-bold mb-4">Machine Details</h2>
                         <form method="POST" action="{{ route('input') }}" enctype="multipart/form-data">
                             @csrf
-                            <!-- Machine Name -->
-                            <div>
-                                <x-input-label for="machine_name" :value="__('Machine Name')" />
-                                <x-text-input id="machine_name" class="block mt-1 w-full" type="text" name="machine_name" :value="old('machine_name')" required autofocus />
-                                <x-input-error :messages="$errors->get('machine_name')" class="mt-2" />
-                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Machine Name -->
+                                <div>
+                                    <x-input-label for="machine_name" :value="__('Machine Name')" />
+                                    <x-text-input id="machine_name" class="block mt-1 w-full h-10 border-gray-300" type="text" name="machine_name" :value="old('machine_name')" required autofocus />
+                                    <x-input-error :messages="$errors->get('machine_name')" class="mt-2" />
+                                </div>
+                                
+                                <!-- Institution ID -->
+                                <div>
+                                    <x-input-label for="institution_id" :value="__('Institution ID')" />
+                                    <x-text-input id="institution_id" class="block mt-1 w-full h-10 border-gray-300" type="text" name="institution_id" :value="old('institution_id')" required />
+                                    <x-input-error :messages="$errors->get('institution_id')" class="mt-2" />
+                                </div>
+                                
+                                <!-- Category -->
+                                <div>
+                                    <x-input-label for="category" :value="__('Category')" />
+                                    <x-text-input id="category" class="block mt-1 w-full h-10 border-gray-300" type="text" name="category" :value="old('category')" required />
+                                    <x-input-error :messages="$errors->get('category')" class="mt-2" />
+                                </div>
+                                
+                                <!-- Model -->
+                                <div>
+                                    <x-input-label for="model" :value="__('Model')" />
+                                    <x-text-input id="model" class="block mt-1 w-full h-10 border-gray-300" type="text" name="model" :value="old('model')" required />
+                                    <x-input-error :messages="$errors->get('model')" class="mt-2" />
+                                </div>
+                                
+                                <!-- Location -->
+                                <div>
+                                    <x-input-label for="location" :value="__('Location')" />
+                                    <x-text-input id="location" class="block mt-1 w-full h-10 border-gray-300" type="text" name="location" :value="old('location')" required />
+                                    <x-input-error :messages="$errors->get('location')" class="mt-2" />
+                                </div>
+                                
+                                <!-- Date of Manufacture -->
+                                <div>
+                                    <x-input-label for="date_of_manufacture" :value="__('Date of Manufacture')" />
+                                    <x-text-input id="date_of_manufacture" class="block mt-1 w-full h-10 border-gray-300" type="date" name="date_of_manufacture" :value="old('date_of_manufacture')" required />
+                                    <x-input-error :messages="$errors->get('date_of_manufacture')" class="mt-2" />
+                                </div>
+                                
+                                <!-- Rate -->
+                                <div>
+                                    <x-input-label for="rate" :value="__('Rate')" />
+                                    <x-text-input id="rate" class="block mt-1 w-full h-10 border-gray-300" type="number" name="rate" :value="old('rate')" required />
+                                    <x-input-error :messages="$errors->get('rate')" class="mt-2" />
+                                </div>
+                                
+                                <!-- Count -->
+                                <div>
+                                    <x-input-label for="count" :value="__('Count')" />
+                                    <x-text-input id="count" class="block mt-1 w-full h-10 border-gray-300" type="number" name="count" :value="old('count')" required />
+                                    <x-input-error :messages="$errors->get('count')" class="mt-2" />
+                                </div>
 
-                            <!-- Institution ID -->
-                            <div class="mt-4">
-                                <x-input-label for="institution_id" :value="__('Institution ID')" />
-                                <x-text-input id="institution_id" class="block mt-1 w-full" type="text" name="institution_id" :value="old('institution_id')" required />
-                                <x-input-error :messages="$errors->get('institution_id')" class="mt-2" />
-                            </div>
+                                <!-- Description -->
+                                <div class="md:col-span-2">
+                                    <x-input-label for="description" :value="__('Description')" />
+                                    <textarea id="description" class= " resize-none block mt-1 w-full border border-gray-300 rounded-md p-2" name="description" required>{{ old('description') }}</textarea>
+                                    <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                                </div>
 
-                            <!-- Category -->
-                            <div class="mt-4">
-                                <x-input-label for="category" :value="__('Category')" />
-                                <x-text-input id="category" class="block mt-1 w-full" type="text" name="category" :value="old('category')" required />
-                                <x-input-error :messages="$errors->get('category')" class="mt-2" />
-                            </div>
-
-                            <!-- Model -->
-                            <div class="mt-4">
-                                <x-input-label for="model" :value="__('Model')" />
-                                <x-text-input id="model" class="block mt-1 w-full" type="text" name="model" :value="old('model')" required />
-                                <x-input-error :messages="$errors->get('model')" class="mt-2" />
-                            </div>
-
-                            <!-- Location -->
-                            <div class="mt-4">
-                                <x-input-label for="location" :value="__('Location')" />
-                                <x-text-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required />
-                                <x-input-error :messages="$errors->get('location')" class="mt-2" />
-                            </div>
-
-                            <!-- Date of Manufacture -->
-                            <div class="mt-4">
-                                <x-input-label for="date_of_manufacture" :value="__('Date of Manufacture')" />
-                                <x-text-input id="date_of_manufacture" class="block mt-1 w-full" type="date" name="date_of_manufacture" :value="old('date_of_manufacture')" required />
-                                <x-input-error :messages="$errors->get('date_of_manufacture')" class="mt-2" />
-                            </div>
-
-                            <!-- Rate -->
-                            <div class="mt-4">
-                                <x-input-label for="rate" :value="__('Rate')" />
-                                <x-text-input id="rate" class="block mt-1 w-full" type="number" name="rate" :value="old('rate')" required />
-                                <x-input-error :messages="$errors->get('rate')" class="mt-2" />
-                            </div>
-
-                            <!-- Count -->
-                            <div class="mt-4">
-                                <x-input-label for="count" :value="__('Count')" />
-                                <x-text-input id="count" class="block mt-1 w-full" type="number" name="count" :value="old('count')" required />
-                                <x-input-error :messages="$errors->get('count')" class="mt-2" />
-                            </div>
-
-
-                            <!-- Description -->
-                            <div class="mt-4">
-                                <x-input-label for="description" :value="__('Description')" />
-                                <textarea id="description" class="block mt-1 w-full border border-gray-300 rounded-md p-2" name="description" required>{{ old('description') }}</textarea>
-                                <x-input-error :messages="$errors->get('description')" class="mt-2" />
-                            </div>
-
-                            <!-- Specification -->
-                            <div class="mt-4" id="specifications-container">
-                                <x-input-label for="specification" :value="__('Specification')" />
-                                @foreach (old('specification', ['']) as $specification)
-                                    <textarea id="specification" class="block mt-1 w-full border border-gray-300 rounded-md p-2" name="specification[]" required>{{ $specification }}</textarea>
-                                @endforeach
-                                <x-input-error :messages="$errors->get('specification')" class="mt-2" />
-                            </div>
-
-                            <!-- Images -->
-                            <div class="mt-4" id="image-container">
-                                <x-input-label for="image" :value="__('Upload Image')" />
-                                @if (old('image'))
-                                    @foreach (old('image') as $image)
-                                        <input id="image" class="block mt-1 w-full border border-gray-300 rounded-md p-2" type="file" name="image[]" accept="image/*" required />
+                                <!-- Specification -->
+                                <div class="md:col-span-2" id="specifications-container">
+                                    <x-input-label for="specification" :value="__('Specification')" />
+                                    @foreach (old('specification', ['']) as $specification)
+                                        <textarea id="specification" class=" resize-none caret-[#462f91] block mt-1 w-full border border-gray-300 rounded-md p-2" name="specification[]" required>{{ $specification }}</textarea>
                                     @endforeach
-                                @else
-                                    <input id="image" class="block mt-1 w-full border border-gray-300 rounded-md p-2" type="file" name="image[]" accept="image/*" required />
-                                @endif
-                                <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('specification')" class="mt-2" />
+                                </div>
+
+                                <!-- Images -->
+                                <div class="md:col-span-2" id="image-container">
+                                    <x-input-label for="image" :value="__('Upload Image')" />
+                                    @if (old('image'))
+                                        @foreach (old('image') as $image)
+                                            <input id="image" class="block mt-1 w-full border border-gray-300 rounded-md p-2" type="file" name="image[]" accept="image/*" required />
+                                        @endforeach
+                                    @else
+                                        <input id="image" class="block mt-1 w-full border border-gray-300 rounded-md p-2" type="file" name="image[]" accept="image/*" required />
+                                    @endif
+                                    <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                                </div>
                             </div>
 
-                            <div class="flex items-center justify-end mt-4">
-                                <x-primary-button class="ml-4">
+                            <div class="flex items-center justify-end transition duration-150 ease-out hover:ease-in mt-6">
+                                <x-primary-button class="ml-4" onclick="document.getElementById('save-modal').showModal()">
                                     {{ __('Save') }}
                                 </x-primary-button>
+
                                 <button type="button" id="add-specification-button" class="ml-4 bg-[#5C3DC3] hover:bg-[#462f91] text-white font-bold py-2 px-4 rounded">
                                     Add Specification
                                 </button>

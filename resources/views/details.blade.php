@@ -30,7 +30,7 @@
     <header class="bg-[#5C3DC3] text-white py-4">
         <div class="container mx-auto flex justify-between items-center">
             <h2 class="text-2xl px-4">Dashboard</h2>
-            <input type="text" placeholder="Search for Institute" class="mx-6 px-7 py-2 rounded">
+            
         </div>
     </header>
     <div class="flex">
