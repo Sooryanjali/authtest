@@ -100,11 +100,15 @@
 }
 
             /* Custom styles for the marquee effect */
-        .marquee {
+            .marquee-container {
             display: flex;
             overflow: hidden;
             white-space: nowrap;
-            animation: marquee 10s linear infinite ;
+            position: relative;
+        }
+        .marquee {
+            display: inline-flex;
+            animation: marquee 10s linear infinite;
         }
         .marquee-reverse {
             animation-direction: reverse;
@@ -112,8 +116,7 @@
         @keyframes marquee {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
-        }
-        .font-semibold {
+        }        .font-semibold {
     font-weight: 600;
 }
         </style>
@@ -153,76 +156,36 @@
             </div>
         </nav>
 
+        <!--hero-->
         <div class="video-background-container relative h-screen">
-            <video class="absolute top-0 left-0 w-full h-5/6 object-cover" autoplay loop muted>
+            <video class="video-background" autoplay loop muted>
                 <source src="videos/im3.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 flex items-center justify-center bg-opacity-50">
-                <div class="bg-opacity-0 p-6 mb-28 rounded-lg bg-white text-white text-center">
-                    <h2 class="text-5xl md:text-6xl font-bold mb-0"> WELCOME TO <span style="background-image: linear-gradient(to right, rgb(14, 208, 208), rgb(8, 93, 189)); background-repeat: no-repeat; background-position: left center; display: inline-block; background-size: 100% 100%; background-clip: text; -webkit-text-fill-color: transparent;">IEDC </span> PORTAL</h2>
-                </div>
-            </div>
-            <div>
-                <h1 class="text-3xl md:text-4xl font-bold text-white px-12 pt-4">MACHINE CATEGORY</h1>
-            </div>
-
-        </div>
-        
-        <div>
-            <h1 class="text-3xl md:text-4xl font-bold text-black px-12 pt-4">MACHINE CATEGORY</h1>
-        </div>
-
-        <div class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border-white bg-background md:shadow-xl">
-            <!-- First Marquee Row -->
-            <div class="marquee pause-on-hover">
-                @foreach($machines as $mach)
-                    <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
-                                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
-                                        <div class="h-48 bg-gray-200">
+            <div class="absolute inset-0 mt-36 flex items-center justify-center bg-opacity-50">
+                <div class="bg-opacity-0 w-1/2 rounded-lg bg-white text-white text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold mt-18 pt-4"> WELCOME TO <span style="background-image: linear-gradient(to right, rgb(14, 208, 208), rgb(8, 93, 189)); background-repeat: no-repeat; background-position: left center; display: inline-block; background-size: 100% 100%; background-clip: text; -webkit-text-fill-color: transparent;">IEDC </span> PORTAL</h2>
+                    <div class="marquee-container pause-on-hover">
+                        <div class="marquee">
+                            @foreach($machines as $mach)
+                                <figure class="relative w-80 cursor-pointer overflow-hidden px-12 pt-12">
+                                    <div class="glass bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
+                                        <div class="glass h-36 bg-gray-200">
                                             <img src="images/printer.jpg" alt="Image description" class="h-full w-full object-cover">
                                         </div>
-
-                                        <div class="p-6">
-                                            <h2 class="text-xl font-semibold mb-2">{{$mach}} </h2>
-                                            <a href="/login" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">View More</a>
+                                        <div class="p-12">
+                                            <h2 class="text-xl text-white pb-4 font-semibold mb-2">{{$mach}} </h2>
+                                            <a href="/login" class="text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">View More</a>
                                         </div>
                                     </div>
-                    </figure>
-                @endforeach
-                  
-   
+                                </figure>
 
-                   
-
- 
-            </div>
-    
-            <!-- Second Marquee Row 
-            <div class="marquee marquee-reverse pause-on-hover">
-              
-                <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
-                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
-                        <div class="h-48 bg-gray-200"></div>
-                        <div class="p-6">
-                            <h2 class="text-xl font-semibold mb-2">Machine</h2>
-                            <a href="/login" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
+                            @endforeach
                         </div>
                     </div>
-                </figure>
-
-                <figure class="relative w-80 cursor-pointer overflow-hidden rounded-xl border p-12 border-white bg-white hover:bg-white">
-                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
-                        <div class="h-48 bg-gray-200"></div>
-                        <div class="p-6">
-                            <h2 class="text-xl font-semibold mb-2">Machine</h2>
-                            <a href="/login" class=" text-white px-4 py-2 rounded bg-[#5C3DC3] hover:bg-[#462f91]">Details</a>
-                        </div>
-                    </div>
-                </figure> -->
-
-                
-            </div>
+                </div>
+            </div> 
         </div>
+       
     
         <!-- Include Marquee Script -->
         <script>
