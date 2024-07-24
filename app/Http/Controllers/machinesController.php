@@ -11,7 +11,19 @@ class machinesController extends Controller
     public function landing()
     {
         $machines = DB::table('machines')->distinct()->pluck('Category');
-        return view('welcome', compact('machines'));
+        $machine = DB::table('machines')->get();
+        $imageUrls = [];
+        //$allImageUrls = [];
+        foreach ($machine as $mach) {
+            $imagePaths = json_decode($mach->image);
+            //$imageUrls = [];
+           // $imageUrls[] = url('/storage/' . $imagePaths);
+        }
+        foreach ($imagePaths as $path) {
+            $imageUrls[] = url('/storage/' . $path); //Storage::url($path);
+        }
+        
+        return view('welcome', compact('machines','imageUrls'));
     }
     public function index()
     {

@@ -26,7 +26,7 @@
             .aura-background {
                 background: linear-gradient(270deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
                 background-size: 800% 800%;
-                animation: aura 10s ease infinite;
+                animation: aura 15s ease infinite;
             }
             .glass {
     background: rgba(255, 255, 255, 0.036); /* Decreased opacity */
@@ -169,8 +169,13 @@
                             @foreach($machines as $mach)
                                 <figure class="relative w-80 cursor-pointer overflow-hidden px-12 pt-12">
                                     <div class="glass bg-white shadow-md rounded-lg overflow-hidden transform transition-transform hover:scale-105">
-                                        <div class="glass h-36 bg-gray-200">
+                                        <!--<div class="glass h-36 bg-gray-200">
                                             <img src="images/printer.jpg" alt="Image description" class="h-full w-full object-cover">
+                                        </div>-->
+                                        <div class="glass h-36 bg-gray-200">
+                                        @foreach ($imageUrls as $url)
+                                            <img src="{{ $url }}" alt="Machine Image" style="max-width: 300px;">
+                                        @endforeach
                                         </div>
                                         <div class="p-12">
                                             <h2 class="text-xl text-white pb-4 font-semibold mb-2">{{$mach}} </h2>
